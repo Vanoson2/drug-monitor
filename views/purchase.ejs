@@ -5,7 +5,9 @@
 <main id="main">
 
 	<h2>Calculate Drugs to purchase</h2>
-	<p>For how many days do you want to purchase drugs?</p> <form id="drug_days"> <input type="number" id="days" value="30"> <button type="submit">Enter</button> </form>
+	<p>For how many days do you want to purchase drugs?</p> 
+	<form id="drug_days" method="get" action="/purchase"> <input type="number" id="days" name="days" value="<%= days %>"> 
+		<button type="submit">Enter</button> </form>
 
 	<table id="purchase_table">	
 		<thead>
@@ -19,7 +21,6 @@
 		<tbody>
 			<!-- Loop through drugs -->
 			<% for(let i = 0; i < drugs.length; i++) {%>
-			<% let days = 30; %>
 			<% let pills = days*drugs[i].perDay; %>
 			<tr>
 				<td><%= i + 1 %></td>
@@ -35,4 +36,5 @@
 <!-- add footer -->
 <%- include('includes/_footer') %>
 <!-- end footer-->
+
 
